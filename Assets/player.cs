@@ -19,7 +19,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     private void FixedUpdate()
@@ -28,5 +28,9 @@ public class player : MonoBehaviour
        
         if(rigidbody2D.velocity.magnitude < maxSpeed)
             rigidbody2D.AddForce(accel);
+
+
     }
+
+
 }
