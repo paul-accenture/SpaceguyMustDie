@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Flag : MonoBehaviour
 {
+    public player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,7 @@ public class Flag : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameObject player = other.gameObject;
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-500, 200));
+            player.Deactivate();
             Debug.Log("GREEN");
         }
     }
