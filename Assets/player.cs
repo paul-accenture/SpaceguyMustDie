@@ -20,6 +20,7 @@ public class player : MonoBehaviour
         alive = false;
         rigidbody2D = GetComponent<Rigidbody2D>();
         accel = new Vector2(10, 0);
+        mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();
 
     }
 
@@ -69,7 +70,7 @@ public class player : MonoBehaviour
 
     public Rigidbody2D GetRigidbody2D()
     {
-        return rigidbody2D;
+        return GetComponent<Rigidbody2D>();
     }
 
     public void Deactivate()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Flag : MonoBehaviour
 {
-    public player player;
+    private player player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
 
     // Update is called once per frame
