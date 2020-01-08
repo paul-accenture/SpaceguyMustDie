@@ -88,6 +88,8 @@ public class player : MonoBehaviour
         rigidbody2D.position = (respawn );
         GetComponent<CapsuleCollider2D>().enabled = true;
         gameState.resetKeys();
+        GetComponent<SpriteRenderer>().flipX = false;
+        accel.x = 10;
     }
 
     public void go() { alive = true; }
