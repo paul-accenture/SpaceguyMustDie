@@ -55,6 +55,8 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
             kill(true);
+        if (collision.gameObject.tag == "boundary")
+            reverse();
     }
 
     private void kill(bool fromEnemy)
@@ -90,6 +92,12 @@ public class player : MonoBehaviour
 
     public void go() { alive = true; }
 
+    public void reverse()
+    {
+        accel.x = 0 - accel.x;
+        
+        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+    }
 
 
 }

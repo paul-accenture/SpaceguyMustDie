@@ -22,6 +22,8 @@ public class gameState : MonoBehaviour
     public int jumpsLeft;
 
     public bool inputEnabled;
+    public int levelID;
+    public int totalLevels;
 
     private player player;
     // Start is called before the first frame update
@@ -81,6 +83,7 @@ public class gameState : MonoBehaviour
                     inputEnabled = false;
                     overlay.color = new Color(1, 1, 1, 0);
                     mainText.gameObject.SetActive(true);
+                    StartCoroutine(loadNextLevel());
                     break;
                 }
             case state.RED:
@@ -230,6 +233,15 @@ public class gameState : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         inputEnabled = true;
         mainText.gameObject.SetActive(true);
+    }
+
+    IEnumerator loadNextLevel()
+    {
+        inputEnabled = false;
+        yield return new WaitForSeconds(2);
+        inputEnabled = true;
+        if(levelID < totalLevels)
+            SceneManager.LoadScene("Level " + (levelID + 1));
     }
 
 }
