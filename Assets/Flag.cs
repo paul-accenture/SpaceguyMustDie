@@ -9,7 +9,7 @@ public class Flag : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+        
         gameState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
     }
 
@@ -23,12 +23,15 @@ public class Flag : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            player.Deactivate();
+            gameState.stopPlayer();
 
             if (gameState.hasAllKeys())
                 gameState.updateState(gameState.state.CLEAR);
             else
+            { 
                 gameState.updateState(gameState.state.GREEN);
+                gameState.resetPlayer();
+            }
         }
     }
 

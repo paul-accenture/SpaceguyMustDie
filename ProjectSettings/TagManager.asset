@@ -12,6 +12,8 @@ TagManager:
   - Undefined
   - Key
   - overlay
+  - PowersText
+  - PowerImage
   layers:
   - Default
   - TransparentFX

@@ -35,11 +35,6 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            alive = true;
-        }
-
         if (alive && rigidbody2D.velocity.magnitude < maxSpeed)
             rigidbody2D.AddForce(accel);
 
@@ -50,7 +45,7 @@ public class player : MonoBehaviour
 
         if (this.transform.position.y <= -10)
         {
-            //SceneManager.LoadScene("SampleScene");
+            
             reset();
         }
 
@@ -77,14 +72,14 @@ public class player : MonoBehaviour
         return GetComponent<Rigidbody2D>();
     }
 
-    public void Deactivate()
+    public void stop()
     {
         alive = false;
         rigidbody2D.velocity = new Vector2(0, 0);
     }
 
     
-    private void reset()
+    public void reset()
     {
         rigidbody2D.velocity = new Vector2(0, 0);
         Vector3 respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>().position;
@@ -92,6 +87,8 @@ public class player : MonoBehaviour
         GetComponent<CapsuleCollider2D>().enabled = true;
         gameState.resetKeys();
     }
+
+    public void go() { alive = true; }
 
 
 

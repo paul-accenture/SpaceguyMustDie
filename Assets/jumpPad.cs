@@ -20,10 +20,9 @@ public class jumpPad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("TEST");
         if (other.tag == "Player")
         {
-            Debug.Log("C'MON JUMP");
+            
             Rigidbody2D playerRigidBody = player.GetRigidbody2D();
             float playerVelocityX = playerRigidBody.velocity.x;
             playerRigidBody.velocity = new Vector2(playerVelocityX, 0);
