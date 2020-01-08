@@ -95,8 +95,8 @@ public class Grid : MonoBehaviour
 
     GameObject getObjectAtActiveTile()
     {
-        Vector2 coordinate = new Vector2((hiliteSprite.transform.position - offset).x, (hiliteSprite.transform.position - offset).y);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 1);
+        Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.3f);
         foreach (Collider2D i in hits)
         {
             if (i.gameObject.name != "Tilemap")

@@ -45,6 +45,7 @@ public class gameState : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 inputEnabled = false;
+                mainText.gameObject.SetActive(false);
                 player.go();
             }
         }
@@ -79,7 +80,7 @@ public class gameState : MonoBehaviour
                     mainText.text = "LEVEL CLEAR!";
                     inputEnabled = false;
                     overlay.color = new Color(1, 1, 1, 0);
-                    powerImage.GetComponent<Renderer>().enabled = false;
+                    mainText.gameObject.SetActive(trye);
                     break;
                 }
             case state.RED:
@@ -228,6 +229,7 @@ public class gameState : MonoBehaviour
         inputEnabled = false;
         yield return new WaitForSeconds(seconds);
         inputEnabled = true;
+        mainText.gameObject.SetActive(true);
     }
 
 }
