@@ -38,6 +38,7 @@ public class Grid : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.J) && getActiveTile() != null && gamestate.getState() == gameState.state.RED)
             {
                 GameObject alreadyHere = getObjectAtActiveTile();
+                
                 if (alreadyHere == null)
                 {
                     if (gamestate.jumpsLeft > 0)
@@ -48,9 +49,12 @@ public class Grid : MonoBehaviour
                 }
                 else if (alreadyHere.name.StartsWith("jumpBoard"))
                 {
+                    Debug.Log(alreadyHere.name);
                     Destroy(alreadyHere);
                     gamestate.gainJump();
                 }
+                else
+                    Debug.Log(alreadyHere.name);
 
             }
 
@@ -96,7 +100,7 @@ public class Grid : MonoBehaviour
     GameObject getObjectAtActiveTile()
     {
         Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.3f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.4f);
         foreach (Collider2D i in hits)
         {
             if (i.gameObject.name != "Tilemap")

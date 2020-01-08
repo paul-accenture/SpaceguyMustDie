@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 1157894832349687716, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0140114
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 1157894832349687716, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
@@ -182,6 +182,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1157894832349687721, guid: ed92626d2e3a8472c936bc4ce99bc15e,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1157894832349687723, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -197,10 +202,25 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1157894832349687723, guid: ed92626d2e3a8472c936bc4ce99bc15e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9441667
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157894832349687723, guid: ed92626d2e3a8472c936bc4ce99bc15e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.25943398
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157894832349687723, guid: ed92626d2e3a8472c936bc4ce99bc15e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1157894832349687727, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
       propertyPath: m_Name
-      value: jumpBoard
+      value: permajumpBoard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed92626d2e3a8472c936bc4ce99bc15e, type: 3}
@@ -1092,8 +1112,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200.55002}
-  m_SizeDelta: {x: 1342.3, y: 682.9}
+  m_AnchoredPosition: {x: -2.4, y: 228.1}
+  m_SizeDelta: {x: 1347.1, y: 627.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193785480
 MonoBehaviour:
@@ -1465,8 +1485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -469}
-  m_SizeDelta: {x: 908.5, y: 113.5}
+  m_AnchoredPosition: {x: 0, y: -500.2}
+  m_SizeDelta: {x: 908.5, y: 51.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838633913
 MonoBehaviour:
@@ -1499,9 +1519,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[SPACE] - Go, Space Guy! Go!
-
-    [TAB] - Restart level '
+  m_Text: '[TAB] - Restart level '
 --- !u!222 &1838633914
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -80,7 +80,7 @@ public class gameState : MonoBehaviour
                     mainText.text = "LEVEL CLEAR!";
                     inputEnabled = false;
                     overlay.color = new Color(1, 1, 1, 0);
-                    mainText.gameObject.SetActive(trye);
+                    mainText.gameObject.SetActive(true);
                     break;
                 }
             case state.RED:
