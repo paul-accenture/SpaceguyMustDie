@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flag : MonoBehaviour
+public class key : MonoBehaviour
 {
-    private player player;
+    public int keyNumber;
     private gameState gameState;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         gameState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
     }
 
@@ -23,14 +22,9 @@ public class Flag : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            player.Deactivate();
-
-            if (gameState.hasAllKeys())
-                gameState.updateState(gameState.state.CLEAR);
-            else
-                gameState.updateState(gameState.state.GREEN);
+            gameState.getKey(keyNumber);
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
-
-   
 }

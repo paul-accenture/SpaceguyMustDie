@@ -11,33 +11,36 @@ public class player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     Vector2 accel;
     bool alive;
+
     
-    public Text mainText;
-   
+    private gameState gameState;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         alive = false;
         rigidbody2D = GetComponent<Rigidbody2D>();
         accel = new Vector2(10, 0);
-        mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();
-
+       
+        gameState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+        gameState.resetKeys();
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 
     private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             alive = true;
         }
-       
-        if(alive && rigidbody2D.velocity.magnitude < maxSpeed)
+
+        if (alive && rigidbody2D.velocity.magnitude < maxSpeed)
             rigidbody2D.AddForce(accel);
 
         if (this.transform.position.y <= -5)
@@ -47,7 +50,8 @@ public class player : MonoBehaviour
 
         if (this.transform.position.y <= -10)
         {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
+            reset();
         }
 
     }
@@ -61,10 +65,10 @@ public class player : MonoBehaviour
     private void kill(bool fromEnemy)
     {
         alive = false;
-        if(fromEnemy)
+        if (fromEnemy)
             rigidbody2D.AddForce(new Vector2(-100, 100));
         GetComponent<CapsuleCollider2D>().enabled = false;
-        mainText.text = "O NOES U DED";
+        gameState.updateState(gameState.state.RED);
 
     }
 
@@ -78,4 +82,17 @@ public class player : MonoBehaviour
         alive = false;
         rigidbody2D.velocity = new Vector2(0, 0);
     }
+
+    
+    private void reset()
+    {
+        rigidbody2D.velocity = new Vector2(0, 0);
+        Vector3 respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Transform>().position;
+        rigidbody2D.position = (respawn );
+        GetComponent<CapsuleCollider2D>().enabled = true;
+        gameState.resetKeys();
+    }
+
+
+
 }

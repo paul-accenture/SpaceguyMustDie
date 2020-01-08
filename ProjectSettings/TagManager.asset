@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - MainTextDisplay
   - hilite
+  - tileMap
+  - Undefined
+  - Key
+  - overlay
   layers:
   - Default
   - TransparentFX
@@ -42,15 +46,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 2337879021
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: player
     uniqueID: 2423962845
     locked: 0
-  - name: background
+  - name: HUD
     uniqueID: 1777439969
-    locked: 0
-  - name: 
-    uniqueID: 2337879021
     locked: 0
