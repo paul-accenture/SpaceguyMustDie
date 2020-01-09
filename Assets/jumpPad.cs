@@ -26,7 +26,7 @@ public class jumpPad : MonoBehaviour
             Rigidbody2D playerRigidBody = player.GetRigidbody2D();
             float playerVelocityX = playerRigidBody.velocity.x;
             playerRigidBody.velocity = new Vector2(playerVelocityX, 0);
-
+            GetComponent<AudioSource>().Play();
             playerRigidBody.AddForce(jump);
         }
     }

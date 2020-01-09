@@ -62,6 +62,7 @@ public class player : MonoBehaviour
     private void kill(bool fromEnemy)
     {
         alive = false;
+        GetComponent<AudioSource>().Play();
         if (fromEnemy)
         {
             float flip = 1;
@@ -95,6 +96,7 @@ public class player : MonoBehaviour
         gameState.resetKeys();
         GetComponent<SpriteRenderer>().flipX = false;
         accel.x = 10;
+        GameObject.FindGameObjectWithTag("Respawn").GetComponent<AudioSource>().Play();
     }
 
     public void go() { alive = true; }

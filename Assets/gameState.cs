@@ -13,6 +13,7 @@ public class gameState : MonoBehaviour
 
     public Text mainText;
     private Text powersText;
+    private Text playerText;
     private Image powerImage;
 
     public GameObject[] HUDkeys;
@@ -35,8 +36,17 @@ public class gameState : MonoBehaviour
         mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();
         powersText = GameObject.FindGameObjectWithTag("PowersText").GetComponent<Text>();
         powerImage = GameObject.FindGameObjectWithTag("PowerImage").GetComponent<Image>();
+        playerText = GameObject.FindGameObjectWithTag("playerText").GetComponent<Text>();
         updateState(state.GREEN);
 
+    }
+
+    private void FixedUpdate()
+    {
+        if(playerText.color.a > 0)
+        {
+            playerText.color = new Color(1, 1, 1, playerText.color.a - .01f);
+        }
     }
 
     // Update is called once per frame
@@ -60,11 +70,11 @@ public class gameState : MonoBehaviour
 
         if (myState == state.RED)
         {
-            powersText.text = "x" + jumpsLeft + " [J]";
+            powersText.text = "x" + jumpsLeft + " [CLICK]";
         }
         else if (myState == state.GREEN)
         {
-            powersText.text = "x" + enemiesLeft + " [E]";
+            powersText.text = "x" + enemiesLeft + " [CLICK]";
         }
         else
             powersText.text = "";
@@ -73,6 +83,9 @@ public class gameState : MonoBehaviour
 
     public void updateState(state newState)
     {
+        bool change = (myState != newState);
+        
+
         myState = newState;
         SpriteRenderer overlay = GameObject.FindGameObjectWithTag("overlay").GetComponent<SpriteRenderer>();
         switch (myState)
@@ -91,8 +104,8 @@ public class gameState : MonoBehaviour
                     mainText.text = "SAVE SPACEGUY!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nSelect a tile and press [J] to add a jump pad that will save Space Guy's life.";
-                        mainText.text += "\nYou can take back jump pads you've already placed by pressing [J] with their tile selected.";
+                        mainText.text += "\nClick the ground to add a jump pad that will save Space Guy's life.";
+                        mainText.text += "\nYou can take back jump pads you've already placed by clicking again.";
                         mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
                     }
                     overlay.color = new Color(.8f, .1f, .1f, .28f);
@@ -103,9 +116,9 @@ public class gameState : MonoBehaviour
                     hideKeys();
 
                     
-                    StartCoroutine(delayInput(2));
+                    StartCoroutine(delayInput(2, "PLAYER TWO", change));
                     
-
+                   
                     break;
                 }
             case state.GREEN:
@@ -113,8 +126,8 @@ public class gameState : MonoBehaviour
                     mainText.text = "SPACE GUY MUST DIE!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nSelect a tile and press [E] to add an enemy that will force Space Guy to collect the key.";
-                        mainText.text += "\nYou can take back enemies you've already placed by pressing [E] with their tile selected.";
+                        mainText.text += "\nClick the ground to add an enemy that will force Space Guy to collect the key.";
+                        mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
                         mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
                     }
                     overlay.color = new Color(.1f, .8f, .1f, .28f);
@@ -124,8 +137,9 @@ public class gameState : MonoBehaviour
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 128);
                     showKeys();
                     
-                    StartCoroutine(delayInput(1));
-                    
+                    StartCoroutine(delayInput(1, "PLAYER ONE", change));
+
+                   
                     break;
                 }
             default:
@@ -250,10 +264,16 @@ public class gameState : MonoBehaviour
         enemiesLeft++;
     }
 
-    IEnumerator delayInput(int seconds)
+    IEnumerator delayInput(int seconds, string text, bool change)
     {
         inputEnabled = false;
         yield return new WaitForSeconds(seconds);
+        if (change)
+        {
+            playerText.text = text;
+            playerText.color = new Color(1, 1, 1, 1);
+        }
+       
         inputEnabled = true;
         mainText.gameObject.SetActive(true);
     }

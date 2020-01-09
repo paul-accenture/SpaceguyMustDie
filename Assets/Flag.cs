@@ -26,12 +26,15 @@ public class Flag : MonoBehaviour
             gameState.stopPlayer();
 
             if (gameState.hasAllKeys())
-                gameState.updateState(gameState.state.CLEAR);
-            else
             { 
-                gameState.updateState(gameState.state.GREEN);
-                gameState.resetPlayer();
+                gameState.updateState(gameState.state.CLEAR);
+                GetComponent<AudioSource>().Play();
             }
+        else
+        {
+            gameState.updateState(gameState.state.GREEN);
+            gameState.resetPlayer();
+        }
         }
     }
 

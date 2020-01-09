@@ -22,9 +22,11 @@ public class key : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            GetComponent<AudioSource>().Play();
             gameState.getKey(keyNumber);
             gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            
         }
     }
 }

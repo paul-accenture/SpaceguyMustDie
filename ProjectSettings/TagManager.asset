@@ -15,6 +15,7 @@ TagManager:
   - PowersText
   - PowerImage
   - boundary
+  - playerText
   layers:
   - Default
   - TransparentFX

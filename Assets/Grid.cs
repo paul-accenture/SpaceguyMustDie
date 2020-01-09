@@ -30,49 +30,50 @@ public class Grid : MonoBehaviour
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int coordinate = gridLayout.WorldToCell(mouseWorldPos);
 
-                if (getTileAtPosition(coordinate) != null)
-                    hiliteSprite.transform.SetPositionAndRotation(gridLayout.CellToWorld(coordinate) + offset, new Quaternion());
+                //if (getTileAtPosition(coordinate) != null)
+                hiliteSprite.transform.SetPositionAndRotation(gridLayout.CellToWorld(coordinate) + offset, new Quaternion());
 
-            }
+                //}
 
-            if (Input.GetKeyUp(KeyCode.J) && getActiveTile() != null && gamestate.getState() == gameState.state.RED)
-            {
-                GameObject alreadyHere = getObjectAtActiveTile();
-                
-                if (alreadyHere == null)
+                if (getActiveTile() != null && gamestate.getState() == gameState.state.RED)
                 {
-                    if (gamestate.jumpsLeft > 0)
+                    GameObject alreadyHere = getObjectAtActiveTile();
+
+                    if (alreadyHere == null)
                     {
-                        Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
-                        gamestate.spendJump();
+                        if (gamestate.jumpsLeft > 0)
+                        {
+                            Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendJump();
+                        }
                     }
-                }
-                else if (alreadyHere.name.StartsWith("jumpBoard"))
-                {
-                    Debug.Log(alreadyHere.name);
-                    Destroy(alreadyHere);
-                    gamestate.gainJump();
-                }
-                else
-                    Debug.Log(alreadyHere.name);
-
-            }
-
-            if (Input.GetKeyUp(KeyCode.E) && getActiveTile() != null && gamestate.getState() == gameState.state.GREEN)
-            {
-                GameObject alreadyHere = getObjectAtActiveTile();
-                if (alreadyHere == null)
-                {
-                    if (gamestate.enemiesLeft > 0)
-                    { 
-                        Instantiate(Resources.Load("pokerMad"), hiliteSprite.transform.position + new Vector3(0, (float).4, 0), hiliteSprite.transform.rotation);
-                        gamestate.spendEnemy();
+                    else if (alreadyHere.name.StartsWith("jumpBoard"))
+                    {
+                        Debug.Log(alreadyHere.name);
+                        Destroy(alreadyHere);
+                        gamestate.gainJump();
                     }
+                    else
+                        Debug.Log(alreadyHere.name);
+
                 }
-                else if (alreadyHere.name.StartsWith("pokerMad"))
+
+                if (getActiveTile() != null && gamestate.getState() == gameState.state.GREEN)
                 {
-                    Destroy(alreadyHere);
-                    gamestate.gainEnemy();
+                    GameObject alreadyHere = getObjectAtActiveTile();
+                    if (alreadyHere == null)
+                    {
+                        if (gamestate.enemiesLeft > 0)
+                        {
+                            Instantiate(Resources.Load("pokerMad"), hiliteSprite.transform.position + new Vector3(0, (float).4, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendEnemy();
+                        }
+                    }
+                    else if (alreadyHere.name.StartsWith("pokerMad"))
+                    {
+                        Destroy(alreadyHere);
+                        gamestate.gainEnemy();
+                    }
                 }
             }
         }
