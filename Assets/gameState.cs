@@ -134,9 +134,13 @@ public class gameState : MonoBehaviour
 
     private void hideKeys()
     {
-        foreach (GameObject k in GameObject.FindGameObjectsWithTag("Key"))
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
+        for (int i = 0; i < keys.Length; i++)
         {
-            k.GetComponent<Renderer>().enabled = false;
+            //if (!keysGathered[i])
+            keys[i].GetComponent<Renderer>().enabled = false;
+            keys[i].GetComponent<Collider2D>().enabled = true;
+            Debug.Log("hiding " + keys[i].gameObject.name);
         }
     }
 
@@ -145,8 +149,10 @@ public class gameState : MonoBehaviour
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
         for (int i = 0; i < keys.Length; i++)
         {
-            if (!keysGathered[i])
+            //if (!keysGathered[i])
                 keys[i].GetComponent<Renderer>().enabled = true;
+                keys[i].GetComponent<Collider2D>().enabled = false;
+                Debug.Log("showing " + keys[i].gameObject.name);
         }
     }
 
@@ -154,6 +160,7 @@ public class gameState : MonoBehaviour
     {
         keysGathered[index] = true;
         HUDkeys[index].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("filledKey");
+        Debug.Log("Player gathered key " + index);
 
     }
 
@@ -166,7 +173,7 @@ public class gameState : MonoBehaviour
 
 
 
-        for (int i = 0; i < keysGathered.Length; i++)
+        for (int i = 0; i < HUDkeys.Length; i++)
         {
             if (HUDkeys[i] != null)
                 Destroy(HUDkeys[i]);

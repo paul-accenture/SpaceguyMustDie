@@ -38,7 +38,7 @@ public class player : MonoBehaviour
         if (alive && rigidbody2D.velocity.magnitude < maxSpeed)
             rigidbody2D.AddForce(accel);
 
-        if (this.transform.position.y <= -5)
+        if (alive && this.transform.position.y <= -5 )
         {
             kill(false);
         }
@@ -63,7 +63,12 @@ public class player : MonoBehaviour
     {
         alive = false;
         if (fromEnemy)
-            rigidbody2D.AddForce(new Vector2(-100, 100));
+        {
+            float flip = 1;
+            if (GetComponent<SpriteRenderer>().flipX)
+                flip = -1;
+            rigidbody2D.AddForce(new Vector2(-100 * flip, 100));
+        }
         GetComponent<CapsuleCollider2D>().enabled = false;
         gameState.updateState(gameState.state.RED);
 
