@@ -65,11 +65,11 @@ public class Grid : MonoBehaviour
                     {
                         if (gamestate.enemiesLeft > 0)
                         {
-                            Instantiate(Resources.Load("pokerMad"), hiliteSprite.transform.position + new Vector3(0, (float).4, 0), hiliteSprite.transform.rotation);
+                            Instantiate(Resources.Load("bug"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
                             gamestate.spendEnemy();
                         }
                     }
-                    else if (alreadyHere.name.StartsWith("pokerMad"))
+                    else if (alreadyHere.name.StartsWith("bug"))
                     {
                         Destroy(alreadyHere);
                         gamestate.gainEnemy();

@@ -104,7 +104,7 @@ public class gameState : MonoBehaviour
                     mainText.text = "SAVE SPACEGUY!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nClick the ground to add a jump pad that will save Space Guy's life.";
+                        mainText.text += "\nClick the ground to add a jump pad that will save Space Guy's life -- avoid bugs!";
                         mainText.text += "\nYou can take back jump pads you've already placed by clicking again.";
                         mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
                     }
@@ -126,15 +126,15 @@ public class gameState : MonoBehaviour
                     mainText.text = "SPACE GUY MUST DIE!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nClick the ground to add an enemy that will force Space Guy to collect the key.";
+                        mainText.text += "\nClick the ground to add an obstacle that Space Guy can't avoid without getting the key.";
                         mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
                         mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
                     }
                     overlay.color = new Color(.1f, .8f, .1f, .28f);
                     mainText.color = new Color(0f, 1f, 0f, 1f);
-                    powerImage.sprite = Resources.Load<Sprite>("poker");
-                    powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 48);
-                    powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 128);
+                    powerImage.sprite = Resources.Load<Sprite>("bugSprite");
+                    powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 120);
+                    powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 64);
                     showKeys();
                     
                     StartCoroutine(delayInput(1, "PLAYER ONE", change));
@@ -148,8 +148,8 @@ public class gameState : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Level 0")
         {
             mainText.text = "Welcome to SPACE GUY MUST DIE!\n";
-            mainText.text += "\nThis is a two player game. PLAYER ONE";
-            mainText.text += "\nwill be able to see the keys Space Guy";
+            mainText.text += "\nThis is a two player game -- you will work together.\nPLAYER ONE ";
+            mainText.text += "will be able to see the keys Space Guy";
             mainText.text += "\nneeds to collect, but can't affect how he moves.";
             mainText.text += "\nPLAYER TWO can't see the keys but can help";
             mainText.text += "\nSpace Guy jump. Player One can place obstacles";
