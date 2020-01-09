@@ -145,20 +145,25 @@ public class gameState : MonoBehaviour
             default:
                 { break; }
         }
-        if(SceneManager.GetActiveScene().name == "Level 0")
+        if (SceneManager.GetActiveScene().name == "Level 0")
         {
-            mainText.text = "Welcome to SPACE GUY MUST DIE!\n";
-            mainText.text += "\nThis is a two player game -- you will work together.\nPLAYER ONE ";
-            mainText.text += "will be able to see the keys Space Guy";
-            mainText.text += "\nneeds to collect, but can't affect how he moves.";
-            mainText.text += "\nPLAYER TWO can't see the keys but can help";
-            mainText.text += "\nSpace Guy jump. Player One can place obstacles";
-            mainText.text += "\nto force Space Guy along the right path under";
-            mainText.text += "\nthreat of death. Take turns -- Player One when";
-            mainText.text += "\nthe screen is GREEN and Player Two when the ";
-            mainText.text += "\nscreen is RED (no peeking!)";
-            mainText.text += "\nPress [SPACE] to start!)";
-
+            if (myState != state.CLEAR)
+            {
+                mainText.text = "Welcome to SPACE GUY MUST DIE!\n";
+                mainText.text += "\nThis is a two player game -- you will work together.\n";
+                mainText.text += "\nPLAYER ONE will be able to see the KEYS Space Guy";
+                mainText.text += "\nneeds to collect, but can't affect how he moves.";
+                mainText.text += "\nPLAYER TWO can't see the keys but can help";
+                mainText.text += "\nSpace Guy jump. Player One can place BUGS";
+                mainText.text += "\nto force Space Guy along the right path under";
+                mainText.text += "\nthreat of death. Take turns -- Player One when";
+                mainText.text += "\nthe screen is GREEN and Player Two when the ";
+                mainText.text += "\nscreen is RED (no peeking!)";
+                mainText.text += "\nPress [SPACE] to start!)";
+            }
+            else
+                mainText.text = "LET'S GO!";
+            
         }
     }
 
