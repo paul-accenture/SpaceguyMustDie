@@ -32,6 +32,8 @@ public class player : MonoBehaviour
     void Update()
     {
         anim.SetFloat("horizSpeed", Mathf.Abs(rigidbody2D.velocity.x));
+        anim.SetFloat("vertSpeed", Mathf.Abs(rigidbody2D.velocity.y));
+        anim.SetBool("alive", alive);
     }
 
     private void FixedUpdate()
