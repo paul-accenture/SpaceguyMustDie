@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7515331825577091672}
   - component: {fileID: 7515331825577091679}
   - component: {fileID: 7515331825577091678}
-  - component: {fileID: -8589598272671875961}
   - component: {fileID: 2232944140436204101}
+  - component: {fileID: 2446149222361478481}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,22 +135,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.66, y: 0.92}
   m_Direction: 0
---- !u!111 &-8589598272671875961
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7515331825577091677}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 69a782a12952442a6a172947aa963a20, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 69a782a12952442a6a172947aa963a20, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!82 &2232944140436204101
 AudioSource:
   m_ObjectHideFlags: 0
@@ -247,3 +231,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2446149222361478481
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7515331825577091677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67d3ee68aa61a4d0ba469114f95dcfe4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

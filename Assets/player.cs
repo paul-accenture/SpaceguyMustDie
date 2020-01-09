@@ -14,7 +14,7 @@ public class player : MonoBehaviour
 
     
     private gameState gameState;
-    
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +24,14 @@ public class player : MonoBehaviour
         accel = new Vector2(10, 0);
        
         gameState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+        anim = GetComponent<Animator>();
         gameState.resetKeys();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        anim.SetFloat("horizSpeed", Mathf.Abs(rigidbody2D.velocity.x));
     }
 
     private void FixedUpdate()
