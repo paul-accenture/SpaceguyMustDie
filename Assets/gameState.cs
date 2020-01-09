@@ -96,6 +96,7 @@ public class gameState : MonoBehaviour
                         mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
                     }
                     overlay.color = new Color(.8f, .1f, .1f, .28f);
+                    mainText.color = new Color(1f, 0f, .0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("jump");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 84);
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 94);
@@ -117,6 +118,7 @@ public class gameState : MonoBehaviour
                         mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
                     }
                     overlay.color = new Color(.1f, .8f, .1f, .28f);
+                    mainText.color = new Color(0f, 1f, 0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("poker");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 48);
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 128);
@@ -129,7 +131,21 @@ public class gameState : MonoBehaviour
             default:
                 { break; }
         }
+        if(SceneManager.GetActiveScene().name == "Level 0")
+        {
+            mainText.text = "Welcome to SPACE GUY MUST DIE!\n";
+            mainText.text += "\nThis is a two player game. PLAYER ONE";
+            mainText.text += "\nwill be able to see the keys Space Guy";
+            mainText.text += "\nneeds to collect, but can't affect how he moves.";
+            mainText.text += "\nPLAYER TWO can't see the keys but can help";
+            mainText.text += "\nSpace Guy jump. Player One can place obstacles";
+            mainText.text += "\nto force Space Guy along the right path under";
+            mainText.text += "\nthreat of death. Take turns -- Player One when";
+            mainText.text += "\nthe screen is GREEN and Player Two when the ";
+            mainText.text += "\nscreen is RED (no peeking!)";
+            mainText.text += "\nPress [SPACE] to start!)";
 
+        }
     }
 
     private void hideKeys()
