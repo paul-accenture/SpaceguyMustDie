@@ -28,6 +28,15 @@ public class jumpPad : MonoBehaviour
             playerRigidBody.velocity = new Vector2(playerVelocityX, 0);
             GetComponent<AudioSource>().Play();
             playerRigidBody.AddForce(jump);
+            GetComponent<Animator>().SetBool("jumping", true);
+            endAnim();
         }
+    }
+
+    IEnumerator endAnim()
+    {
+        
+        yield return new WaitForSeconds(2);
+        GetComponent<Animator>().SetBool("jumping", false);
     }
 }
