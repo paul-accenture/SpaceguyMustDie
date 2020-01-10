@@ -1564,7 +1564,7 @@ MonoBehaviour:
   jumpsLeft: 0
   inputEnabled: 0
   levelID: 0
-  totalLevels: 4
+  totalLevels: 5
 --- !u!4 &1972953369
 Transform:
   m_ObjectHideFlags: 0
