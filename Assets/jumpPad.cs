@@ -29,7 +29,7 @@ public class jumpPad : MonoBehaviour
             GetComponent<AudioSource>().Play();
             playerRigidBody.AddForce(jump);
             GetComponent<Animator>().SetBool("jumping", true);
-            endAnim();
+            StartCoroutine(endAnim());
         }
     }
 
