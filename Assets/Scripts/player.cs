@@ -38,8 +38,10 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (alive && rigidbody2D.velocity.magnitude < maxSpeed)
+        if (alive && rigidbody2D.velocity.x < maxSpeed)
+
             rigidbody2D.AddForce(accel);
+
 
         if (alive && this.transform.position.y <= -5 )
         {
@@ -102,7 +104,8 @@ public class player : MonoBehaviour
         GameObject.FindGameObjectWithTag("Respawn").GetComponent<AudioSource>().Play();
     }
 
-    public void go() { alive = true; }
+    public void go() {
+        alive = true; }
 
     public void reverse()
     {
