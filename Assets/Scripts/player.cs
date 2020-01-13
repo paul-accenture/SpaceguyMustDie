@@ -65,7 +65,7 @@ public class player : MonoBehaviour
             reverse();
     }
 
-    private void kill(bool fromEnemy)
+    public void kill(bool fromEnemy)
     {
         alive = false;
         GetComponent<AudioSource>().Play();

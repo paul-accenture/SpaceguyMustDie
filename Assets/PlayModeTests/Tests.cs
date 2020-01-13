@@ -132,6 +132,53 @@ namespace Tests
             Assert.True(myState.keysGathered[0]);
         }
 
+        [UnityTest]
+        public IEnumerator StateBecomesRedIfPlayerDies()
+        {
+            myPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.updateState(gameState.state.GREEN);
+
+            myPlayer.kill(false);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.getState(), gameState.state.RED);
+
+        }
+
+        [UnityTest]
+        public IEnumerator StateBecomesGreenIfPlayerHitsFlagWithoutAllKeys()
+        {
+            myPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.updateState(gameState.state.RED);
+            GameObject flag = GameObject.FindGameObjectWithTag("Flag");
+
+
+            myPlayer.GetRigidbody2D().MovePosition(flag.transform.position);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.getState(), gameState.state.GREEN);
+
+        }
+
+        [UnityTest]
+        public IEnumerator StateBecomesClearIfPlayerHitsFlagWithAllKeys()
+        {
+            myPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.updateState(gameState.state.RED);
+            GameObject flag = GameObject.FindGameObjectWithTag("Flag");
+
+            myState.keysGathered[0] = true;
+            myPlayer.GetRigidbody2D().MovePosition(flag.transform.position);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.getState(), gameState.state.CLEAR);
+        }
 
     }
 }
