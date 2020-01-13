@@ -27,6 +27,7 @@ public class Grid : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+               
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int coordinate = gridLayout.WorldToCell(mouseWorldPos);
 

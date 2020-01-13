@@ -172,7 +172,6 @@ public class gameState : MonoBehaviour
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
         for (int i = 0; i < keys.Length; i++)
         {
-            //if (!keysGathered[i])
             keys[i].GetComponent<Renderer>().enabled = false;
             keys[i].GetComponent<Collider2D>().enabled = true;
             
@@ -183,8 +182,7 @@ public class gameState : MonoBehaviour
     {
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
         for (int i = 0; i < keys.Length; i++)
-        {
-            //if (!keysGathered[i])
+        { 
                 keys[i].GetComponent<Renderer>().enabled = true;
                 keys[i].GetComponent<Collider2D>().enabled = false;
               
