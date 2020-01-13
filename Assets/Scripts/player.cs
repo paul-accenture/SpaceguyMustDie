@@ -114,5 +114,7 @@ public class player : MonoBehaviour
         GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
     }
 
+    public bool isAlive()
+    { return alive; }
 
 }

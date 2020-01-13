@@ -16,6 +16,7 @@ TagManager:
   - PowerImage
   - boundary
   - playerText
+  - jumpBoard
   layers:
   - Default
   - TransparentFX

@@ -175,7 +175,7 @@ public class gameState : MonoBehaviour
             //if (!keysGathered[i])
             keys[i].GetComponent<Renderer>().enabled = false;
             keys[i].GetComponent<Collider2D>().enabled = true;
-            Debug.Log("hiding " + keys[i].gameObject.name);
+            
         }
     }
 
@@ -187,7 +187,7 @@ public class gameState : MonoBehaviour
             //if (!keysGathered[i])
                 keys[i].GetComponent<Renderer>().enabled = true;
                 keys[i].GetComponent<Collider2D>().enabled = false;
-                Debug.Log("showing " + keys[i].gameObject.name);
+              
         }
     }
 
@@ -195,7 +195,7 @@ public class gameState : MonoBehaviour
     {
         keysGathered[index] = true;
         HUDkeys[index].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("filledKey");
-        Debug.Log("Player gathered key " + index);
+       
 
     }
 
