@@ -24,8 +24,9 @@ public class key : MonoBehaviour
         {
             GetComponent<AudioSource>().Play();
             gameState.getKey(keyNumber);
-            gameObject.GetComponent<Renderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Renderer>().enabled = true;
+            GetComponent<Animator>().SetBool("gathered", true);
             
         }
     }

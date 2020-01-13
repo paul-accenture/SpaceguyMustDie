@@ -70,11 +70,11 @@ public class gameState : MonoBehaviour
 
         if (myState == state.RED)
         {
-            powersText.text = "x" + jumpsLeft + " [CLICK]";
+            powersText.text = "x" + jumpsLeft + " [LMB]";
         }
         else if (myState == state.GREEN)
         {
-            powersText.text = "x" + enemiesLeft + " [CLICK]";
+            powersText.text = "x" + enemiesLeft + " [LMB]";
         }
         else
             powersText.text = "";
@@ -206,13 +206,15 @@ public class gameState : MonoBehaviour
         if (HUDkeys == null || HUDkeys.Length == 0)
             HUDkeys = new GameObject[keysGathered.Length];
 
-
+        GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
 
         for (int i = 0; i < HUDkeys.Length; i++)
         {
             if (HUDkeys[i] != null)
                 Destroy(HUDkeys[i]);
             HUDkeys[i] = (UnityEngine.GameObject)Instantiate(Resources.Load("HUDkeyslot"), new Vector3((float)(-9.4 + (i * 0.5)), 5, 0), new Quaternion());
+            keys[i].GetComponent<Animator>().SetBool("gathered", false);
+
         }
     }
 
