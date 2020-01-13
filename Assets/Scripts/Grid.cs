@@ -18,6 +18,7 @@ public class Grid : MonoBehaviour
         gamestate = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
         gridLayout = GetComponentInParent<GridLayout>();
         tilemap = GetComponentInChildren<Tilemap>();
+        offset = new Vector2(0.35f, 0.35f);
     }
 
     // Update is called once per frame
