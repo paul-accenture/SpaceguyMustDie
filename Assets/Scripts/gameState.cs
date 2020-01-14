@@ -20,7 +20,9 @@ public class gameState : MonoBehaviour
     public bool[] keysGathered;
 
     public int enemiesLeft;
+    public int altEnemiesLeft;
     public int jumpsLeft;
+    public int ducksLeft;
 
     public bool inputEnabled;
     public int levelID;
@@ -249,24 +251,36 @@ public class gameState : MonoBehaviour
         player.reset();
     }
 
-    public void spendEnemy()
+    public void spendEnemy(bool alt)
     {
-        enemiesLeft--;
+        if(alt)
+            altEnemiesLeft--;
+        else
+            enemiesLeft--;
     }
 
-    public void spendJump()
+    public void spendItem(bool alt)
     {
-        jumpsLeft--;
+        if (alt)
+            ducksLeft--;
+        else
+            jumpsLeft--;
     }
 
-    public void gainJump()
+    public void gainItem(bool alt)
     {
-        jumpsLeft++;
+        if (alt)
+            ducksLeft++;
+        else
+            jumpsLeft++;
     }
 
-    public void gainEnemy()
+    public void gainEnemy(bool alt)
     {
-        enemiesLeft++;
+        if (alt)
+            altEnemiesLeft++;
+        else
+            enemiesLeft++;
     }
 
     IEnumerator delayInput(int seconds, string text, bool change)

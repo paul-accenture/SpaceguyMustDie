@@ -71,7 +71,7 @@ public class Grid : MonoBehaviour
 
     GameObject getObjectAtActiveTile()
     {
-        Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y);
+        Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y+1);
         Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.4f);
         foreach (Collider2D i in hits)
         {
@@ -106,14 +106,14 @@ public class Grid : MonoBehaviour
                         if (gamestate.jumpsLeft > 0)
                         {
                             Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
-                            gamestate.spendJump();
+                            gamestate.spendItem(false);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("jumpBoard"))
                     {
                         Debug.Log(alreadyHere.name);
                         Destroy(alreadyHere);
-                        gamestate.gainJump();
+                        gamestate.gainItem(true);
                     }
                     else
                         Debug.Log(alreadyHere.name);
@@ -122,19 +122,64 @@ public class Grid : MonoBehaviour
 
                 if (gamestate.getState() == gameState.state.GREEN)
                 {
-                   
+
                     if (alreadyHere == null)
                     {
                         if (gamestate.enemiesLeft > 0)
                         {
                             Instantiate(Resources.Load("bug"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
-                            gamestate.spendEnemy();
+                            gamestate.spendEnemy(false);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("bug"))
                     {
                         Destroy(alreadyHere);
-                        gamestate.gainEnemy();
+                        gamestate.gainEnemy(false);
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (getActiveTile() != null && checkForTilesAboveActiveTile() == null)
+            {
+                GameObject alreadyHere = getObjectAtActiveTile();
+                if (gamestate.getState() == gameState.state.RED)
+                {
+
+                    if (alreadyHere == null)
+                    {
+                        if (gamestate.ducksLeft > 0)
+                        {
+                            Instantiate(Resources.Load("duck"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendItem(true);
+                        }
+                    }
+                    else if (alreadyHere.name.StartsWith("duck"))
+                    {
+                        Debug.Log(alreadyHere.name);
+                        Destroy(alreadyHere);
+                        gamestate.gainItem(true);
+                    }
+                    else
+                        Debug.Log(alreadyHere.name);
+
+                }
+                if (gamestate.getState() == gameState.state.GREEN)
+                {
+
+                    if (alreadyHere == null)
+                    {
+                        if (gamestate.altEnemiesLeft > 0)
+                        {
+                            Instantiate(Resources.Load("altBugs"), hiliteSprite.transform.position + new Vector3(0, 1.6f, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendEnemy(true);
+                        }
+                    }
+                    else if (alreadyHere.name.StartsWith("altBugs"))
+                    {
+                        Destroy(alreadyHere);
+                        gamestate.gainEnemy(true);
                     }
                 }
             }

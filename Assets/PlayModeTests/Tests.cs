@@ -195,5 +195,58 @@ namespace Tests
             Assert.AreEqual(myState.enemiesLeft, 1);
 
         }
+
+        [UnityTest]
+        public IEnumerator PlayerOnePlacesHighBugsOnRightClick()
+        {
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.altEnemiesLeft = 1;
+
+            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+
+            grid.handleClick(new Vector3(-4f, -3.8f, -10f), false);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.altEnemiesLeft, 0);
+        }
+
+        [UnityTest]
+        public IEnumerator PlayerTwoPlacesDuckOnRightClick()
+        {
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.updateState(gameState.state.RED);
+            myState.ducksLeft = 1;
+
+            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+
+            grid.handleClick(new Vector3(-4f, -3.8f, -10f), false);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.ducksLeft, 0);
+        }
+
+        [UnityTest]
+        public IEnumerator DuckAvoidsTallBugs()
+        {
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
+            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+            myState.altEnemiesLeft = 1;
+            myState.ducksLeft = 1;
+
+            grid.handleClick(new Vector3(-0.3f, -3.8f, -10f), false);
+
+            myState.updateState(gameState.state.RED);
+
+            grid.handleClick(new Vector3(-0.8f, -3.8f, -10f), false);
+
+            myPlayer.go();
+
+            yield return new WaitForSeconds(2.5f);
+
+            Assert.True(myPlayer.isAlive());
+        }
     }
 }

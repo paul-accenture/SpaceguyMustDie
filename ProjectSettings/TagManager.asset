@@ -18,6 +18,7 @@ TagManager:
   - playerText
   - jumpBoard
   - grid
+  - duck
   layers:
   - Default
   - TransparentFX

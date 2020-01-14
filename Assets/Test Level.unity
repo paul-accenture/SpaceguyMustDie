@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 5367739319808462340, guid: af6152ccec3484088879f0914c7dea0a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5367739319808462340, guid: af6152ccec3484088879f0914c7dea0a,
         type: 3}
@@ -1119,7 +1119,7 @@ PrefabInstance:
     - target: {fileID: 1157894832349687716, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1157894832349687716, guid: ed92626d2e3a8472c936bc4ce99bc15e,
         type: 3}
@@ -1446,12 +1446,12 @@ PrefabInstance:
     - target: {fileID: 1052292115004072900, guid: 02bd7eb5832d04c54b82f8265abcfb8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.74
+      value: -7.78
       objectReference: {fileID: 0}
     - target: {fileID: 1052292115004072900, guid: 02bd7eb5832d04c54b82f8265abcfb8b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.48
+      value: 3.07
       objectReference: {fileID: 0}
     - target: {fileID: 1052292115004072900, guid: 02bd7eb5832d04c54b82f8265abcfb8b,
         type: 3}
@@ -1532,6 +1532,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: bug
       objectReference: {fileID: 0}
+    - target: {fileID: 786653858549619302, guid: 6909e0ce8185d4c0dacba9e5ff353bd5,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.24474669
+      objectReference: {fileID: 0}
+    - target: {fileID: 786653858549619302, guid: 6909e0ce8185d4c0dacba9e5ff353bd5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.97050667
+      objectReference: {fileID: 0}
     - target: {fileID: 786653858549619303, guid: 6909e0ce8185d4c0dacba9e5ff353bd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,7 +1580,7 @@ PrefabInstance:
     - target: {fileID: 786653858549619303, guid: 6909e0ce8185d4c0dacba9e5ff353bd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 786653858549619303, guid: 6909e0ce8185d4c0dacba9e5ff353bd5,
         type: 3}
@@ -1609,17 +1619,17 @@ PrefabInstance:
     - target: {fileID: 7515331825577091673, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7515331825577091674, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.74
+      value: -7.78
       objectReference: {fileID: 0}
     - target: {fileID: 7515331825577091674, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.46
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 7515331825577091674, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
@@ -1649,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 7515331825577091674, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7515331825577091674, guid: 523ad627f6113482586aa556bc11d7e3,
         type: 3}
@@ -1777,7 +1787,9 @@ MonoBehaviour:
   HUDkeys: []
   keysGathered: 
   enemiesLeft: 0
+  altEnemiesLeft: 1
   jumpsLeft: 0
+  ducksLeft: 1
   inputEnabled: 0
   levelID: -2
   totalLevels: 0

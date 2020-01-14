@@ -11,6 +11,7 @@ public class player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     Vector2 accel;
     bool alive;
+    bool ducking;
 
     
     private gameState gameState;
@@ -117,5 +118,24 @@ public class player : MonoBehaviour
 
     public bool isAlive()
     { return alive; }
+
+    public IEnumerator duck()
+    {
+        Debug.Log("Ducking");
+        ducking = true;
+        CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
+        capsule.direction = CapsuleDirection2D.Horizontal;
+        capsule.offset = new Vector2(0, -0.35f);
+        capsule.size = new Vector3(0.66f, 0.1f, 0);
+        
+
+        yield return new WaitForSeconds(2);
+
+        ducking = false;
+        capsule.direction = CapsuleDirection2D.Vertical;
+        capsule.offset = new Vector2(0, 0);
+        capsule.size = new Vector3(0.66f, 0.92f, 0);
+       
+    }
 
 }
