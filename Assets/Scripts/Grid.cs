@@ -59,6 +59,16 @@ public class Grid : MonoBehaviour
 
     }
 
+    TileBase checkForTilesAboveActiveTile()
+    {
+        Vector3Int coordinate = gridLayout.WorldToCell(hiliteSprite.transform.position - offset);
+
+        coordinate.y += 1;
+
+        return tilemap.GetTile(coordinate);
+
+    }
+
     GameObject getObjectAtActiveTile()
     {
         Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y);
@@ -76,6 +86,7 @@ public class Grid : MonoBehaviour
 
     public void handleClick(Vector3 mousePos, bool left)
     {
+
         Vector3Int coordinate = gridLayout.WorldToCell(mousePos);
 
         
@@ -84,7 +95,7 @@ public class Grid : MonoBehaviour
 
         if (left)
         {
-            if (getActiveTile() != null)
+            if (getActiveTile() != null && checkForTilesAboveActiveTile() == null)
             {
                 GameObject alreadyHere = getObjectAtActiveTile();
                 if (gamestate.getState() == gameState.state.RED)

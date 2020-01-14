@@ -180,5 +180,20 @@ namespace Tests
             Assert.AreEqual(myState.getState(), gameState.state.CLEAR);
         }
 
+        [UnityTest]
+        public IEnumerator ClickOnTileUnderAnotherTileDoesNotPlacePower()
+        {
+            gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
+            myState.enemiesLeft = 1;
+
+            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+
+            grid.handleClick(new Vector3(-8.72f, -3.8f, -10f), true);
+
+            yield return new WaitForSeconds(0.1f);
+
+            Assert.AreEqual(myState.enemiesLeft, 1);
+
+        }
     }
 }

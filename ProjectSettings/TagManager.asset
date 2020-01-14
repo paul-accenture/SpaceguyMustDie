@@ -17,6 +17,7 @@ TagManager:
   - boundary
   - playerText
   - jumpBoard
+  - grid
   layers:
   - Default
   - TransparentFX
