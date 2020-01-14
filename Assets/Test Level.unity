@@ -1782,7 +1782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229ce12ac5a4247aca5e5c1af969805d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verboseTutorials: 1
+  verboseTutorials: 0
   mainText: {fileID: 0}
   HUDkeys: []
   keysGathered: 
@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 1981636054}
   m_Layer: 5
   m_Name: altPowerImage
-  m_TagString: PowerImage
+  m_TagString: altPowerImage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

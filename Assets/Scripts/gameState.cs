@@ -236,13 +236,12 @@ public class gameState : MonoBehaviour
     {
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
 
+        for (int i = 0; i < keys.Length; i++)
+            keys[i].GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2);
         for (int i = 0; i < keys.Length; i++)
-        { 
-                keys[i].GetComponent<Renderer>().enabled = true;
-                keys[i].GetComponent<Collider2D>().enabled = false;
-              
-        }
+            keys[i].GetComponent<Renderer>().enabled = true;
+        
     }
 
     public void getKey(int index)
@@ -340,7 +339,7 @@ public class gameState : MonoBehaviour
     IEnumerator delayInput(int seconds, string text, bool change)
     {
         inputEnabled = false;
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         if (change)
         {
             playerText.text = text;
