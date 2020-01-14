@@ -113,7 +113,7 @@ namespace Tests
             myState.updateState(gameState.state.GREEN);
 
             myPlayer.GetRigidbody2D().MovePosition(key.transform.position);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
 
             Assert.False(myState.keysGathered[0]);
         }

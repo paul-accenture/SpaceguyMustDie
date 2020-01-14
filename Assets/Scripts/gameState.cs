@@ -44,13 +44,13 @@ public class gameState : MonoBehaviour
         altPowerImage = GameObject.FindGameObjectWithTag("altPowerImage").GetComponent<Image>();
         playerText = GameObject.FindGameObjectWithTag("playerText").GetComponent<Text>();
         overlay = GameObject.FindGameObjectWithTag("overlay").GetComponent<SpriteRenderer>();
-        updateState(state.GREEN);
-        
-
 
         noAltPowers = (altEnemiesLeft == 0 && ducksLeft == 0);
+        
+
+        updateState(state.GREEN);
         if (noAltPowers)
-            altPowerImage.color = new Color(1,1,1,0);
+            altPowerImage.color = new Color(1, 1, 1, 0);
 
     }
 
@@ -88,7 +88,7 @@ public class gameState : MonoBehaviour
         if (myState == state.RED)
         {
             powersText.text = "x" + jumpsLeft + " [LMB]";
-            if(!noAltPowers)
+            if (!noAltPowers)
             {
                 powersText.text += "\n\nx" + ducksLeft + " [RMB]";
             }
@@ -208,7 +208,7 @@ public class gameState : MonoBehaviour
                 mainText.text += "\nPLAYER ONE will be able to see the KEYS Space Guy";
                 mainText.text += "\nneeds to collect, but can't affect how he moves.";
                 mainText.text += "\nPLAYER TWO can't see the keys but can help";
-                mainText.text += "\nSpace Guy jump. Player One can place BUGS";
+                mainText.text += "\nSpace Guy jump and duck. Player One can place BUGS";
                 mainText.text += "\nto force Space Guy along the right path under";
                 mainText.text += "\nthreat of death. Take turns -- Player One when";
                 mainText.text += "\nthe screen is GREEN and Player Two when the ";
