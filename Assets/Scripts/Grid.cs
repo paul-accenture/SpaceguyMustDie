@@ -84,44 +84,47 @@ public class Grid : MonoBehaviour
 
         if (left)
         {
-            if (getActiveTile() != null && gamestate.getState() == gameState.state.RED)
+            if (getActiveTile() != null)
             {
                 GameObject alreadyHere = getObjectAtActiveTile();
-
-                if (alreadyHere == null)
+                if (gamestate.getState() == gameState.state.RED)
                 {
-                    if (gamestate.jumpsLeft > 0)
+
+                    if (alreadyHere == null)
                     {
-                        Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
-                        gamestate.spendJump();
+                        if (gamestate.jumpsLeft > 0)
+                        {
+                            Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendJump();
+                        }
                     }
-                }
-                else if (alreadyHere.name.StartsWith("jumpBoard"))
-                {
-                    Debug.Log(alreadyHere.name);
-                    Destroy(alreadyHere);
-                    gamestate.gainJump();
-                }
-                else
-                    Debug.Log(alreadyHere.name);
-
-            }
-
-            if (getActiveTile() != null && gamestate.getState() == gameState.state.GREEN)
-            {
-                GameObject alreadyHere = getObjectAtActiveTile();
-                if (alreadyHere == null)
-                {
-                    if (gamestate.enemiesLeft > 0)
+                    else if (alreadyHere.name.StartsWith("jumpBoard"))
                     {
-                        Instantiate(Resources.Load("bug"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
-                        gamestate.spendEnemy();
+                        Debug.Log(alreadyHere.name);
+                        Destroy(alreadyHere);
+                        gamestate.gainJump();
                     }
+                    else
+                        Debug.Log(alreadyHere.name);
+
                 }
-                else if (alreadyHere.name.StartsWith("bug"))
+
+                if (gamestate.getState() == gameState.state.GREEN)
                 {
-                    Destroy(alreadyHere);
-                    gamestate.gainEnemy();
+                   
+                    if (alreadyHere == null)
+                    {
+                        if (gamestate.enemiesLeft > 0)
+                        {
+                            Instantiate(Resources.Load("bug"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
+                            gamestate.spendEnemy();
+                        }
+                    }
+                    else if (alreadyHere.name.StartsWith("bug"))
+                    {
+                        Destroy(alreadyHere);
+                        gamestate.gainEnemy();
+                    }
                 }
             }
         }
