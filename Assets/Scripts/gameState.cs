@@ -29,6 +29,7 @@ public class gameState : MonoBehaviour
     public bool inputEnabled;
     public int levelID;
     public int totalLevels;
+    SpriteRenderer overlay;
 
     private player player;
     // Start is called before the first frame update
@@ -42,7 +43,9 @@ public class gameState : MonoBehaviour
         powerImage = GameObject.FindGameObjectWithTag("PowerImage").GetComponent<Image>();
         altPowerImage = GameObject.FindGameObjectWithTag("altPowerImage").GetComponent<Image>();
         playerText = GameObject.FindGameObjectWithTag("playerText").GetComponent<Text>();
+        overlay = GameObject.FindGameObjectWithTag("overlay").GetComponent<SpriteRenderer>();
         updateState(state.GREEN);
+        
 
 
         noAltPowers = (altEnemiesLeft == 0 && ducksLeft == 0);
@@ -56,6 +59,10 @@ public class gameState : MonoBehaviour
         if(playerText.color.a > 0)
         {
             playerText.color = new Color(1, 1, 1, playerText.color.a - .01f);
+        }
+        if(overlay.color.a > 0.28f)
+        {
+            overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, overlay.color.a - .005f);
         }
     }
 
@@ -105,7 +112,7 @@ public class gameState : MonoBehaviour
         
 
         myState = newState;
-        SpriteRenderer overlay = GameObject.FindGameObjectWithTag("overlay").GetComponent<SpriteRenderer>();
+        
         switch (myState)
         {
             case state.CLEAR:
@@ -136,7 +143,7 @@ public class gameState : MonoBehaviour
                             
                         }
                     }
-                    overlay.color = new Color(.8f, .1f, .1f, .28f);
+                    overlay.color = new Color(.8f, .1f, .1f, 1);
                     mainText.color = new Color(1f, 0f, .0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("jump");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 84);
@@ -173,7 +180,7 @@ public class gameState : MonoBehaviour
                             
                         }
                     }
-                    overlay.color = new Color(.1f, .8f, .1f, .28f);
+                    overlay.color = new Color(.1f, .8f, .1f, 1);
                     mainText.color = new Color(0f, 1f, 0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("bugSprite");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 120);
@@ -182,7 +189,7 @@ public class gameState : MonoBehaviour
                     altPowerImage.color = new Color(1, 0.525f, 0.525f, 1);
                     altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 80);
                     altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 150);
-                    showKeys();
+                    StartCoroutine(showKeys());
                     
                     StartCoroutine(delayInput(1, "PLAYER ONE", change));
 
@@ -225,9 +232,11 @@ public class gameState : MonoBehaviour
         }
     }
 
-    private void showKeys()
+    private IEnumerator showKeys()
     {
         GameObject[] keys = GameObject.FindGameObjectsWithTag("Key");
+
+        yield return new WaitForSeconds(2);
         for (int i = 0; i < keys.Length; i++)
         { 
                 keys[i].GetComponent<Renderer>().enabled = true;
@@ -331,13 +340,14 @@ public class gameState : MonoBehaviour
     IEnumerator delayInput(int seconds, string text, bool change)
     {
         inputEnabled = false;
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(1);
         if (change)
         {
             playerText.text = text;
             playerText.color = new Color(1, 1, 1, 1);
         }
-       
+        yield return new WaitForSeconds(seconds);
+
         inputEnabled = true;
         mainText.gameObject.SetActive(true);
     }
