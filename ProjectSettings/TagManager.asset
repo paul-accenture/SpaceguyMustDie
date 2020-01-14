@@ -19,6 +19,7 @@ TagManager:
   - jumpBoard
   - grid
   - duck
+  - altPowerImage
   layers:
   - Default
   - TransparentFX

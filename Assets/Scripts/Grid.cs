@@ -72,7 +72,7 @@ public class Grid : MonoBehaviour
     GameObject getObjectAtActiveTile()
     {
         Vector2 coordinate = new Vector2((hiliteSprite.transform.position).x, (hiliteSprite.transform.position).y+1);
-        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.4f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(coordinate, 0.35f);
         foreach (Collider2D i in hits)
         {
             if (i.gameObject.name != "Tilemap")
@@ -113,7 +113,7 @@ public class Grid : MonoBehaviour
                     {
                         Debug.Log(alreadyHere.name);
                         Destroy(alreadyHere);
-                        gamestate.gainItem(true);
+                        gamestate.gainItem(false);
                     }
                     else
                         Debug.Log(alreadyHere.name);

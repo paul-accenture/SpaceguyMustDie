@@ -15,6 +15,7 @@ public class gameState : MonoBehaviour
     private Text powersText;
     private Text playerText;
     private Image powerImage;
+    private Image altPowerImage;
 
     public GameObject[] HUDkeys;
     public bool[] keysGathered;
@@ -23,6 +24,7 @@ public class gameState : MonoBehaviour
     public int altEnemiesLeft;
     public int jumpsLeft;
     public int ducksLeft;
+    bool noAltPowers;
 
     public bool inputEnabled;
     public int levelID;
@@ -38,8 +40,14 @@ public class gameState : MonoBehaviour
         mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();
         powersText = GameObject.FindGameObjectWithTag("PowersText").GetComponent<Text>();
         powerImage = GameObject.FindGameObjectWithTag("PowerImage").GetComponent<Image>();
+        altPowerImage = GameObject.FindGameObjectWithTag("altPowerImage").GetComponent<Image>();
         playerText = GameObject.FindGameObjectWithTag("playerText").GetComponent<Text>();
         updateState(state.GREEN);
+
+
+        noAltPowers = (altEnemiesLeft == 0 && ducksLeft == 0);
+        if (noAltPowers)
+            altPowerImage.color = new Color(1,1,1,0);
 
     }
 
@@ -73,10 +81,18 @@ public class gameState : MonoBehaviour
         if (myState == state.RED)
         {
             powersText.text = "x" + jumpsLeft + " [LMB]";
+            if(!noAltPowers)
+            {
+                powersText.text += "\n\nx" + ducksLeft + " [RMB]";
+            }
         }
         else if (myState == state.GREEN)
         {
             powersText.text = "x" + enemiesLeft + " [LMB]";
+            if (!noAltPowers)
+            {
+                powersText.text += "\n\nx" + altEnemiesLeft + " [RMB]";
+            }
         }
         else
             powersText.text = "";
@@ -106,15 +122,30 @@ public class gameState : MonoBehaviour
                     mainText.text = "SAVE SPACEGUY!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nClick the ground to add a jump pad that will save Space Guy's life -- avoid bugs!";
-                        mainText.text += "\nYou can take back jump pads you've already placed by clicking again.";
-                        mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
+                        if (noAltPowers)
+                        { 
+                            mainText.text += "\n[CLICK] the ground to add a jump pad that will save Space Guy's life -- avoid bugs!";
+                            mainText.text += "\nYou can take back jump pads you've already placed by clicking again.";
+                            mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
+                        }
+                        else
+                        {
+                            mainText.text += "\n[RIGHT CLICK] the ground to add a limbo bar -- Space Guy will duck under obstacles.";
+                            mainText.text += "\nThis will also slow him down.";
+                            mainText.text += "\nYou can take back items you've already placed by clicking again.";
+                            
+                        }
                     }
                     overlay.color = new Color(.8f, .1f, .1f, .28f);
                     mainText.color = new Color(1f, 0f, .0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("jump");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 84);
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 94);
+                    altPowerImage.sprite = Resources.Load<Sprite>("duck");
+                    if(!noAltPowers)
+                        altPowerImage.color = new Color(1, 1, 1, 1);
+                    altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 84);
+                    altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 94);
                     hideKeys();
 
                     
@@ -128,15 +159,29 @@ public class gameState : MonoBehaviour
                     mainText.text = "SPACE GUY MUST DIE!\n";
                     if (verboseTutorials)
                     {
-                        mainText.text += "\nClick the ground to add an obstacle that Space Guy can't avoid without getting the key.";
-                        mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
-                        mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
+                        if (noAltPowers)
+                        {
+                            mainText.text += "\n[CLICK] the ground to add an obstacle that Space Guy can't avoid without getting the key.";
+                            mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
+                            mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
+                        }
+                        else
+                        {
+                            mainText.text += "\n[RIGHT CLICK] the ground to place a tall stack of bugs that Space Guy can't jump over.";
+                            mainText.text += "\nHe'll have to slow down and duck to get past.";
+                            mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
+                            
+                        }
                     }
                     overlay.color = new Color(.1f, .8f, .1f, .28f);
                     mainText.color = new Color(0f, 1f, 0f, 1f);
                     powerImage.sprite = Resources.Load<Sprite>("bugSprite");
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 120);
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 64);
+                    altPowerImage.sprite = Resources.Load<Sprite>("altBugSprite");
+                    altPowerImage.color = new Color(1, 0.525f, 0.525f, 1);
+                    altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 80);
+                    altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 150);
                     showKeys();
                     
                     StartCoroutine(delayInput(1, "PLAYER ONE", change));

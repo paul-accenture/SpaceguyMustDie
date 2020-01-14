@@ -35,6 +35,7 @@ public class player : MonoBehaviour
         anim.SetFloat("horizSpeed", Mathf.Abs(rigidbody2D.velocity.x));
         anim.SetFloat("vertSpeed", Mathf.Abs(rigidbody2D.velocity.y));
         anim.SetBool("alive", alive);
+        anim.SetBool("duck", ducking);
     }
 
     private void FixedUpdate()
@@ -125,13 +126,23 @@ public class player : MonoBehaviour
         ducking = true;
         CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
         capsule.direction = CapsuleDirection2D.Horizontal;
-        capsule.offset = new Vector2(0, -0.35f);
-        capsule.size = new Vector3(0.66f, 0.1f, 0);
+        capsule.offset = new Vector2(0, -0.2f);
+        capsule.size = new Vector3(0.4f, 0.3f, 0);
+        maxSpeed = 2f;
+        if (Math.Abs(rigidbody2D.velocity.x) > maxSpeed)
+        {
+            float flip = 1;
+            if (GetComponent<SpriteRenderer>().flipX)
+                flip = -1;
+
+            rigidbody2D.velocity = new Vector2(maxSpeed * flip, rigidbody2D.velocity.y);
+        }
         
 
         yield return new WaitForSeconds(2);
 
         ducking = false;
+        maxSpeed = 4;
         capsule.direction = CapsuleDirection2D.Vertical;
         capsule.offset = new Vector2(0, 0);
         capsule.size = new Vector3(0.66f, 0.92f, 0);
