@@ -38,7 +38,7 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (alive && Math.Abs(rigidbody2D.velocity.x) < maxSpeed)
+        if (alive && rigidbody2D.velocity.magnitude < maxSpeed)
         {
             rigidbody2D.AddForce(accel);
         }
