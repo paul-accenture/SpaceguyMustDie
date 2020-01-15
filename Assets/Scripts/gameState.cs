@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -297,7 +296,7 @@ public class gameState : MonoBehaviour
         {
             if (HUDkeys[i] != null)
                 Destroy(HUDkeys[i]);
-            HUDkeys[i] = (UnityEngine.GameObject)Instantiate(Resources.Load("HUDkeyslot"), new Vector3((float)(-9.4 + (i * 0.5)), 5, 0), new Quaternion());
+            HUDkeys[i] = (UnityEngine.GameObject)Instantiate(Resources.Load("HUDkeyslot"), new Vector3((float)(-9.4 + (i)), 5, 0), new Quaternion());
             keys[i].GetComponent<Animator>().SetBool("gathered", false);
 
         }
