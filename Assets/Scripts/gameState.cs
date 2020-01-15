@@ -48,8 +48,11 @@ public class gameState : MonoBehaviour
 
         noAltPowers = (altEnemiesLeft == 0 && ducksLeft == 0);
         
+        if(levelID == 0)
+            updateState(state.RED);
+        else
+            updateState(state.GREEN);
 
-        updateState(state.GREEN);
         if (noAltPowers)
             altPowerImage.color = new Color(1, 1, 1, 0);
 
@@ -137,18 +140,18 @@ public class gameState : MonoBehaviour
                 }
             case state.RED:
                 {
-                    mainText.text = "SAVE SPACEGUY!\n";
                     if (verboseTutorials)
                     {
                         if (noAltPowers)
-                        { 
-                            mainText.text += "\n[CLICK] the ground to add a jump pad that will save Space Guy's life -- avoid bugs!";
-                            mainText.text += "\nYou can take back jump pads you've already placed by clicking again.";
-                            mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
+                        {
+                            mainText.text = "\nThe other player has placed BUGS in the map to help guide you to KEY.";
+                            mainText.text += "\n[CLICK] the ground to add a JUMP PAD.";
+                            mainText.text += "\nYou can take back JUMPS you've already placed by clicking again.";
+                            mainText.text += "\n\nYour turn ends when Space Guy gets safely to the flag.\nPress [SPACE] to send Space Guy onward to freedom!";
                         }
                         else
                         {
-                            mainText.text += "\n[RIGHT CLICK] the ground to add a limbo bar -- Space Guy will duck under obstacles.";
+                            mainText.text = "\n[RIGHT CLICK] the ground to add a limbo bar -- Space Guy will duck under obstacles.";
                             mainText.text += "\nThis will also slow him down.";
                             mainText.text += "\nYou can take back items you've already placed by clicking again.";
                             
@@ -174,18 +177,18 @@ public class gameState : MonoBehaviour
                 }
             case state.GREEN:
                 {
-                    mainText.text = "SPACE GUY MUST DIE!\n";
                     if (verboseTutorials)
                     {
                         if (noAltPowers)
                         {
-                            mainText.text += "\n[CLICK] the ground to add an obstacle that Space Guy can't avoid without getting the key.";
-                            mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
-                            mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
+                            mainText.text = "You can see the KEY but Player Two can't.";
+                            mainText.text += "[CLICK] the ground to add a BUG to help guide the other player to the KEY";
+                            mainText.text += "\nYou can take back BUGS you've already placed by clicking again.";
+                            mainText.text += "\n\nYour turn ends when Space Guy runs into a bug.\nPress [SPACE] to send Space Guy to his doom!";
                         }
                         else
                         {
-                            mainText.text += "\n[RIGHT CLICK] the ground to place a tall stack of bugs that Space Guy can't jump over.";
+                            mainText.text = "\n[RIGHT CLICK] the ground to place a tall stack of bugs that Space Guy can't jump over.";
                             mainText.text += "\nHe'll have to slow down and duck to get past.";
                             mainText.text += "\nYou can take back enemies you've already placed by clicking again.";
                             
@@ -214,16 +217,15 @@ public class gameState : MonoBehaviour
         {
             if (myState != state.CLEAR)
             {
-                mainText.text = "Welcome to SPACE GUY MUST DIE!\n";
-                mainText.text += "\nThis is a two player game -- you will work together.\n";
-                mainText.text += "\nPLAYER ONE will be able to see the KEYS Space Guy";
-                mainText.text += "\nneeds to collect, but can't affect how he moves.";
-                mainText.text += "\nPLAYER TWO can't see the keys but can help";
-                mainText.text += "\nSpace Guy jump and duck. Player One can place BUGS";
-                mainText.text += "\nto force Space Guy along the right path under";
-                mainText.text += "\nthreat of death. Take turns -- Player One when";
-                mainText.text += "\nthe screen is GREEN and Player Two when the ";
-                mainText.text += "\nscreen is RED (no peeking!)";
+                mainText.text = "This is a two player game -- hand the computer";
+                mainText.text += "\nback and forth as you play";
+                mainText.text += "\n";
+                mainText.text += "\nPLAYER ONE must guide Space Guy to the keys and the flag";
+                mainText.text += "\nby placing bugs in the level.";
+                mainText.text += "\n";
+                mainText.text += "\nPLAYER TWO must use the placement of bugs ";
+                mainText.text += "\nto collect all the keys and get to the flag";
+                mainText.text += "\n";
                 mainText.text += "\n\nPress [SPACE] to start!";
             }
             else
