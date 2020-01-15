@@ -105,13 +105,14 @@ public class Grid : MonoBehaviour
                     {
                         if (gamestate.jumpsLeft > 0)
                         {
+                            Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                             Instantiate(Resources.Load("jumpBoard"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                             gamestate.spendItem(false);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("jumpBoard"))
                     {
-                        Debug.Log(alreadyHere.name);
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                         Destroy(alreadyHere);
                         gamestate.gainItem(false);
                     }
@@ -128,11 +129,13 @@ public class Grid : MonoBehaviour
                         if (gamestate.enemiesLeft > 0)
                         {
                             Instantiate(Resources.Load("bug"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
+                            Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
                             gamestate.spendEnemy(false);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("bug"))
                     {
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
                         Destroy(alreadyHere);
                         gamestate.gainEnemy(false);
                     }
@@ -151,13 +154,14 @@ public class Grid : MonoBehaviour
                     {
                         if (gamestate.ducksLeft > 0)
                         {
+                            Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                             Instantiate(Resources.Load("duck"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                             gamestate.spendItem(true);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("duck"))
                     {
-                        Debug.Log(alreadyHere.name);
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).7, 0), hiliteSprite.transform.rotation);
                         Destroy(alreadyHere);
                         gamestate.gainItem(true);
                     }
@@ -172,12 +176,14 @@ public class Grid : MonoBehaviour
                     {
                         if (gamestate.altEnemiesLeft > 0)
                         {
+                            Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, 1.6f, 0), hiliteSprite.transform.rotation);
                             Instantiate(Resources.Load("altBugs"), hiliteSprite.transform.position + new Vector3(0, 1.6f, 0), hiliteSprite.transform.rotation);
                             gamestate.spendEnemy(true);
                         }
                     }
                     else if (alreadyHere.name.StartsWith("altBugs"))
                     {
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, 1.6f, 0), hiliteSprite.transform.rotation);
                         Destroy(alreadyHere);
                         gamestate.gainEnemy(true);
                     }
