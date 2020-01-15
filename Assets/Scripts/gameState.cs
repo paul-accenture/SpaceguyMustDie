@@ -48,7 +48,7 @@ public class gameState : MonoBehaviour
 
         noAltPowers = (altEnemiesLeft == 0 && ducksLeft == 0);
         
-
+        
         updateState(state.GREEN);
         if (noAltPowers)
             altPowerImage.color = new Color(1, 1, 1, 0);
@@ -295,7 +295,7 @@ public class gameState : MonoBehaviour
         {
             if (HUDkeys[i] != null)
                 Destroy(HUDkeys[i]);
-            HUDkeys[i] = (UnityEngine.GameObject)Instantiate(Resources.Load("HUDkeyslot"), new Vector3((float)(-9.4 + (i * 0.5)), 5, 0), new Quaternion());
+            HUDkeys[i] = (UnityEngine.GameObject)Instantiate(Resources.Load("HUDkeyslot"), new Vector3((float)(-9.4 + (i)), 5, 0), new Quaternion());
             keys[i].GetComponent<Animator>().SetBool("gathered", false);
 
         }
