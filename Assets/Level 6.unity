@@ -3178,7 +3178,7 @@ MonoBehaviour:
   ducksLeft: 1
   inputEnabled: 0
   levelID: 6
-  totalLevels: 6
+  totalLevels: 7
 --- !u!4 &1972953369
 Transform:
   m_ObjectHideFlags: 0

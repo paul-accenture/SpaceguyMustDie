@@ -30,6 +30,7 @@ public class gameState : MonoBehaviour
     public int levelID;
     public int totalLevels;
     SpriteRenderer overlay;
+    float idleTime;
 
     private player player;
     // Start is called before the first frame update
@@ -64,6 +65,10 @@ public class gameState : MonoBehaviour
         {
             overlay.color = new Color(overlay.color.r, overlay.color.g, overlay.color.b, overlay.color.a - .005f);
         }
+        idleTime += Time.fixedDeltaTime;
+
+        if (idleTime > 60)
+            SceneManager.LoadScene("Level 0");
     }
 
     // Update is called once per frame
@@ -73,9 +78,15 @@ public class gameState : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                inputEnabled = false;
-                mainText.gameObject.SetActive(false);
-                player.go();
+                idleTime = 0;
+                if (levelID == totalLevels)
+                    SceneManager.LoadScene("Level 0");
+                else
+                {
+                    inputEnabled = false;
+                    mainText.gameObject.SetActive(false);
+                    player.go();
+                }
             }
         }
 
@@ -219,6 +230,25 @@ public class gameState : MonoBehaviour
                 mainText.text = "LET'S GO!";
             
         }
+        else if (levelID == totalLevels)
+        {
+            if (myState != state.CLEAR)
+            {
+                mainText.text = "Thanks for playing SPACE GUY MUST DIE!\n";
+                mainText.text += "\nDid you notice that Player Two had an easier time?\n";
+                mainText.text += "\nIn Test Driven Development, writing the right test";
+                mainText.text += "\nmakes implementing your next key feature easier.";
+                mainText.text += "\nAs you build on the features you've implemented,";
+                mainText.text += "\nthe tests you've already written ensure your new";
+                mainText.text += "\nfeatures don't break anything.";
+                mainText.text += "\n\nBYE-BYE, SPACE GUY!";
+                mainText.text += "\nPress [SPACE] to start over.";
+                
+            }
+            else
+                mainText.text = "LET'S GO!";
+
+        }
     }
 
     private void hideKeys()
@@ -358,6 +388,11 @@ public class gameState : MonoBehaviour
         inputEnabled = true;
         if(levelID < totalLevels)
             SceneManager.LoadScene("Level " + (levelID + 1));
+    }
+
+    public void setIdleTime(float time)
+    {
+        idleTime = time;
     }
 
 }

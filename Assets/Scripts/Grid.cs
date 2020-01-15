@@ -86,6 +86,7 @@ public class Grid : MonoBehaviour
 
     public void handleClick(Vector3 mousePos, bool left)
     {
+        gamestate.setIdleTime(0);
 
         Vector3Int coordinate = gridLayout.WorldToCell(mousePos);
 
