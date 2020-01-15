@@ -224,7 +224,7 @@ public class gameState : MonoBehaviour
                 mainText.text += "\nthreat of death. Take turns -- Player One when";
                 mainText.text += "\nthe screen is GREEN and Player Two when the ";
                 mainText.text += "\nscreen is RED (no peeking!)";
-                mainText.text += "\nPress [SPACE] to start!)";
+                mainText.text += "\n\nPress [SPACE] to start!";
             }
             else
                 mainText.text = "LET'S GO!";

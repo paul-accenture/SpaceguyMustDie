@@ -24,19 +24,21 @@ public class Grid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gamestate.inputEnabled)
+        if (gamestate.inputEnabled && gamestate.levelID != 0 && gamestate.levelID != gamestate.totalLevels)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-               
-                handleClick(Camera.main.ScreenToWorldPoint(Input.mousePosition), true);
-                
-            }
+            
+                if (Input.GetMouseButtonDown(0))
+                {
 
-            if(Input.GetMouseButtonDown(1))
-            {
-                handleClick(Camera.main.ScreenToWorldPoint(Input.mousePosition), false);
-            }
+                    handleClick(Camera.main.ScreenToWorldPoint(Input.mousePosition), true);
+
+                }
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    handleClick(Camera.main.ScreenToWorldPoint(Input.mousePosition), false);
+                }
+            
         }
 
     }
@@ -93,7 +95,7 @@ public class Grid : MonoBehaviour
         
         hiliteSprite.transform.SetPositionAndRotation(gridLayout.CellToWorld(coordinate) + offset, new Quaternion());
 
-
+       
         if (left)
         {
             if (getActiveTile() != null && checkForTilesAboveActiveTile() == null)
