@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
-public class Grid : MonoBehaviour
+public class LevelGrid : MonoBehaviour
 {
     GridLayout gridLayout;
     public GameObject hiliteSprite;

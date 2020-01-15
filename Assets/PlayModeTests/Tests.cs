@@ -188,7 +188,7 @@ namespace Tests
             gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
             myState.enemiesLeft = 1;
 
-            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+            LevelGrid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<LevelGrid>();
 
             grid.handleClick(new Vector3(-8.72f, -3.8f, -10f), true);
 
@@ -204,7 +204,7 @@ namespace Tests
             gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
             myState.altEnemiesLeft = 1;
 
-            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+            LevelGrid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<LevelGrid>();
 
             grid.handleClick(new Vector3(-4f, -3.8f, -10f), false);
 
@@ -220,7 +220,7 @@ namespace Tests
             myState.updateState(gameState.state.RED);
             myState.ducksLeft = 1;
 
-            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+            LevelGrid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<LevelGrid>();
 
             grid.handleClick(new Vector3(-4f, -3.8f, -10f), false);
 
@@ -234,7 +234,7 @@ namespace Tests
         {
             gameState myState = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameState>();
             myPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
-            Grid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<Grid>();
+            LevelGrid grid = GameObject.FindGameObjectWithTag("grid").GetComponent<LevelGrid>();
             myState.altEnemiesLeft = 1;
             myState.ducksLeft = 1;
 
