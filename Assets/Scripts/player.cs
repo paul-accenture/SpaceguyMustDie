@@ -122,7 +122,6 @@ public class player : MonoBehaviour
 
     public IEnumerator duck()
     {
-        Debug.Log("Ducking");
         ducking = true;
         CapsuleCollider2D capsule = GetComponent<CapsuleCollider2D>();
         capsule.direction = CapsuleDirection2D.Horizontal;
