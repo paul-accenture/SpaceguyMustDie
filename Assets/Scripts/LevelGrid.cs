@@ -52,20 +52,13 @@ public class LevelGrid : MonoBehaviour
         
     }
 
-    Tile getTileAtPosition(Vector3Int pos)
-    {
-        
-        Tile tile = (UnityEngine.Tilemaps.Tile)tilemap.GetTile(pos);
-       
-        return tile;
 
-    }
 
-    TileBase checkForTilesAboveActiveTile()
+    TileBase checkForTilesInVertical(int vertOffset)
     {
         Vector3Int coordinate = gridLayout.WorldToCell(hiliteSprite.transform.position - offset);
 
-        coordinate.y += 1;
+        coordinate.y += vertOffset;
 
         return tilemap.GetTile(coordinate);
 
@@ -91,14 +84,20 @@ public class LevelGrid : MonoBehaviour
         gamestate.setIdleTime(0);
 
         Vector3Int coordinate = gridLayout.WorldToCell(mousePos);
-
+        
         
         hiliteSprite.transform.SetPositionAndRotation(gridLayout.CellToWorld(coordinate) + offset, new Quaternion());
+
+        if(getActiveTile() == null && checkForTilesInVertical(-1) != null)
+        {
+            coordinate = new Vector3Int(coordinate.x, coordinate.y - 1, coordinate.y);
+            hiliteSprite.transform.SetPositionAndRotation(gridLayout.CellToWorld(coordinate) + offset, new Quaternion());
+        }
 
        
         if (left)
         {
-            if (getActiveTile() != null && checkForTilesAboveActiveTile() == null)
+            if (getActiveTile() != null && checkForTilesInVertical(1) == null)
             {
                 GameObject alreadyHere = getObjectAtActiveTile();
                 if (gamestate.getState() == gameState.state.RED)
@@ -147,7 +146,7 @@ public class LevelGrid : MonoBehaviour
         }
         else
         {
-            if (getActiveTile() != null && checkForTilesAboveActiveTile() == null)
+            if (getActiveTile() != null && checkForTilesInVertical(1) == null)
             {
                 GameObject alreadyHere = getObjectAtActiveTile();
                 if (gamestate.getState() == gameState.state.RED)
