@@ -146,11 +146,11 @@ public class gameState : MonoBehaviour
                             mainText.text = "\nThe other player has placed BUGS in the map to help guide you to KEY.";
                             mainText.text += "\n[CLICK] the ground to add a JUMP PAD.";
                             mainText.text += "\nYou can take back JUMPS you've already placed by clicking again.";
-                            mainText.text += "\n\nYour turn ends when Space Guy gets safely to the flag.\nPress [SPACE] to send Space Guy onward to freedom!";
+                            mainText.text += "\n\nPress [SPACE] to send Space Guy onward to freedom!";
                         }
                         else
                         {
-                            mainText.text = "\n[RIGHT CLICK] the ground to add a limbo bar -- Space Guy will duck under obstacles.";
+                            mainText.text = "[RIGHT CLICK] the ground to add a limbo bar -- Space Guy will duck under obstacles.";
                             mainText.text += "\nThis will also slow him down.";
                             mainText.text += "\nYou can take back items you've already placed by clicking again.";
                             
@@ -180,10 +180,10 @@ public class gameState : MonoBehaviour
                     {
                         if (noAltPowers)
                         {
-                            mainText.text = "You can see the KEY but Player Two can't.";
+                            mainText.text = "";
                             mainText.text += "[CLICK] the ground to add a BUG to help guide the other player to the KEY";
                             mainText.text += "\nYou can take back BUGS you've already placed by clicking again.";
-                            mainText.text += "\n\nYour turn ends when Space Guy runs into a bug.\nPress [SPACE] to send Space Guy to his doom!";
+                            mainText.text += "\n\nPress [SPACE] to send Space Guy to his doom!";
                         }
                         else
                         {
@@ -269,7 +269,7 @@ public class gameState : MonoBehaviour
 
         for (int i = 0; i < keys.Length; i++)
             keys[i].GetComponent<Collider2D>().enabled = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         for (int i = 0; i < keys.Length; i++)
             keys[i].GetComponent<Renderer>().enabled = true;
         
