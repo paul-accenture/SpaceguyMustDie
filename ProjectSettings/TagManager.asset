@@ -20,6 +20,9 @@ TagManager:
   - grid
   - duck
   - altPowerImage
+  - tutorialText
+  - sceneIDManager
+  - SwitchSceneText
   layers:
   - Default
   - TransparentFX

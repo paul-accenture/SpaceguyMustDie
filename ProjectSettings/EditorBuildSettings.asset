@@ -38,7 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Test Level.unity
     guid: 1507fa4c99b59495eb16ad5b4b01e72f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Level 0.unity
     guid: 1380a359dd9e443c18bb632069015dd8
+  - enabled: 1
+    path: Assets/SwitchScene.unity
+    guid: eaf3f78a898aa45959214dc935e64363
   m_configObjects: {}

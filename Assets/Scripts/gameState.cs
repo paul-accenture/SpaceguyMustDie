@@ -30,12 +30,14 @@ public class gameState : MonoBehaviour
     public int totalLevels;
     SpriteRenderer overlay;
     float idleTime;
+    private DetermineLevelForSwitchScene idManager;
 
     private player player;
     // Start is called before the first frame update
     void Start()
     {
         inputEnabled = true;
+        idManager = GameObject.FindGameObjectWithTag("sceneIDManager").GetComponent<DetermineLevelForSwitchScene>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         resetKeys();
         mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();
@@ -69,8 +71,8 @@ public class gameState : MonoBehaviour
         }
         idleTime += Time.fixedDeltaTime;
 
-        if (idleTime > 60)
-            SceneManager.LoadScene("Level 0");
+        if (idleTime > 10 && !SceneManager.GetActiveScene().name.Equals("Tutorial 1"))
+            SceneManager.LoadScene("Tutorial 1");
     }
 
     // Update is called once per frame
@@ -82,7 +84,9 @@ public class gameState : MonoBehaviour
             {
                 idleTime = 0;
                 if (levelID == totalLevels)
-                    SceneManager.LoadScene("Level 0");
+                {
+                    //SceneManager.LoadScene("Level 0");
+                }
                 else
                 {
                     inputEnabled = false;
@@ -388,7 +392,7 @@ public class gameState : MonoBehaviour
         yield return new WaitForSeconds(2);
         inputEnabled = true;
         if(levelID < totalLevels)
-            SceneManager.LoadScene("Level " + (levelID + 1));
+            SceneManager.LoadScene("SwitchScene");
     }
 
     public void setIdleTime(float time)
