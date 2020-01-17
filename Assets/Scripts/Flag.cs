@@ -26,8 +26,9 @@ public class Flag : MonoBehaviour
             gameState.stopPlayer();
 
             if (gameState.hasAllKeys())
-            { 
+            {
                 gameState.updateState(gameState.state.CLEAR);
+                
                 GetComponent<AudioSource>().Play();
             }
         else

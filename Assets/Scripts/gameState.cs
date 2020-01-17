@@ -71,7 +71,7 @@ public class gameState : MonoBehaviour
         }
         idleTime += Time.fixedDeltaTime;
 
-        if (idleTime > 10 && !SceneManager.GetActiveScene().name.Equals("Tutorial 1"))
+        if (idleTime > 120 && !SceneManager.GetActiveScene().name.Equals("Tutorial 1"))
             SceneManager.LoadScene("Tutorial 1");
     }
 
@@ -85,7 +85,7 @@ public class gameState : MonoBehaviour
                 idleTime = 0;
                 if (levelID == totalLevels)
                 {
-                    //SceneManager.LoadScene("Level 0");
+                    SceneManager.LoadScene("Tutorial 1");
                 }
                 else
                 {
@@ -134,6 +134,7 @@ public class gameState : MonoBehaviour
         {
             case state.CLEAR:
                 {
+                    
                     mainText.text = "LEVEL CLEAR!";
                     inputEnabled = false;
                     overlay.color = new Color(1, 1, 1, 0);

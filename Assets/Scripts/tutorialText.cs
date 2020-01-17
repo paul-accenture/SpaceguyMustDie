@@ -61,7 +61,7 @@ public class tutorialText : MonoBehaviour
                     {
                         if (complete)
                         {
-                            mainText.text = "";
+                            tutorials[tutorialID] = "";
                             StartCoroutine(loadNextLevel(3f));
                         }
                             
@@ -99,13 +99,15 @@ public class tutorialText : MonoBehaviour
                 }
             case 2:
                 {
-                        Debug.Log(complete);
+                    if (complete == false)
+                    {
                         Instantiate(Resources.Load("jumpBoard"), source.transform.position + new Vector3(0, -0.15f, 0), new Quaternion());
                         Instantiate(Resources.Load("Poof"), source.transform.position, new Quaternion());
 
                         Destroy(source.gameObject);
                         tutorials[tutorialID] = "Great job!\n\nNow press [SPACE] to start Space Guy moving and complete your turn.";
                         complete = true;
+                    }
               
                     break;
                 }
