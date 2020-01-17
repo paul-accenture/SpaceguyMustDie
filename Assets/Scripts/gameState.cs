@@ -392,8 +392,10 @@ public class gameState : MonoBehaviour
         inputEnabled = false;
         yield return new WaitForSeconds(2);
         inputEnabled = true;
-        if(levelID < totalLevels)
+        if (levelID < totalLevels - 1)
             SceneManager.LoadScene("SwitchScene");
+        else
+            SceneManager.LoadScene("Level " + totalLevels);
     }
 
     public void setIdleTime(float time)
