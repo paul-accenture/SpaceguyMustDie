@@ -23,8 +23,8 @@ public class tutorialText : MonoBehaviour
             "When Space Guy dies, PLAYER TWO will take over and avoid the bugs, get the keys, and get to a flag!\n" +
             "\n[CLICK] ON THE GROUND to place a BUG underneath this KEY.",
 
-            "PLAYER TWO: Your goal is to collect all the hidden keys, avoid death, and get to a flag\n" +
-            "Your partner has placed a bug in the path to guide you towards a hidden key\n" +
+            "PLAYER TWO: Your goal is to collect all the hidden KEYS,\navoid death, and get to a FLAG.\n" +
+            "Your partner has placed a BUG in the path\nto guide you towards a hidden KEY.\n" +
             "[CLICK] on the ground to place a JUMP PAD that will send Space Guy out of harm's way.\n"
     };
     Text mainText;
