@@ -208,7 +208,8 @@ public class gameState : MonoBehaviour
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 120);
                     powerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 64);
                     altPowerImage.sprite = Resources.Load<Sprite>("altBugSprite");
-                    altPowerImage.color = new Color(1, 0.525f, 0.525f, 1);
+                    if (!noAltPowers)
+                        altPowerImage.color = new Color(1, 0.525f, 0.525f, 1);
                     altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 80);
                     altPowerImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 150);
                     StartCoroutine(showKeys());
