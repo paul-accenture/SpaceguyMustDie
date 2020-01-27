@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FB8AAEDA-27D0-4EA2-EA1C-F5832D67C907}</ProjectGuid>
+    <ProjectGuid>{9A6A9FA5-1DDD-2620-8811-54FDA0B50800}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>GameScriptAssembly</AssemblyName>
@@ -75,13 +75,13 @@
     <Compile Include="Assets\Scripts\SwitchSceneTextChange.cs" />
     <Compile Include="Assets\Scripts\tutorialText.cs" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.17f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
