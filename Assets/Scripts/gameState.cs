@@ -37,7 +37,11 @@ public class gameState : MonoBehaviour
     void Start()
     {
         inputEnabled = true;
-        idManager = GameObject.FindGameObjectWithTag("sceneIDManager").GetComponent<DetermineLevelForSwitchScene>();
+        if(GameObject.FindGameObjectWithTag("sceneIDManager") == null)
+            idManager = ((UnityEngine.GameObject)Instantiate(Resources.Load("SceneIDManager"), new Vector3(0, 0, 0), new Quaternion())).GetComponent<DetermineLevelForSwitchScene>();
+        else
+            idManager = GameObject.FindGameObjectWithTag("sceneIDManager").GetComponent<DetermineLevelForSwitchScene>();
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
         resetKeys();
         mainText = GameObject.FindGameObjectWithTag("MainTextDisplay").GetComponent<Text>();

@@ -12,9 +12,10 @@ public class tutorialText : MonoBehaviour
     static int numTutorials = 3;
     gameState gameState;
     bool complete;
-    private string[] tutorials = { "This is a two player game. \n" +
+    private string[] tutorials = { "Welcome to SPACE GUY MUST DIE!\n" +
+            "Two players will work together to gather KEYS.\n" +
             "Pass the computer back and forth as you take turns.\n" +
-            "PLAYER ONE can see the KEYS.\n"+
+            "PLAYER ONE can see the KEYS, but "+
             "PLAYER TWO can't.\n" +
             "Press [SPACE] to continue.",
 

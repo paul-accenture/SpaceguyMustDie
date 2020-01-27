@@ -141,6 +141,18 @@ public class LevelGrid : MonoBehaviour
                         Destroy(alreadyHere);
                         gamestate.gainEnemy(false);
                     }
+                    else if (alreadyHere.name.StartsWith("jump"))
+                    {
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
+                        Destroy(alreadyHere);
+                        gamestate.gainItem(false);
+                    }
+                    else if (alreadyHere.name.StartsWith("duck"))
+                    {
+                        Instantiate(Resources.Load("Poof"), hiliteSprite.transform.position + new Vector3(0, (float).8, 0), hiliteSprite.transform.rotation);
+                        Destroy(alreadyHere);
+                        gamestate.gainItem(true);
+                    }
                 }
             }
         }

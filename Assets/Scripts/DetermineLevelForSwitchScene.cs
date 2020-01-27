@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DetermineLevelForSwitchScene : MonoBehaviour
 {
     public int id = 0;
-
+    string activeScene;
 	void Awake()
 	{
 
@@ -17,12 +17,15 @@ public class DetermineLevelForSwitchScene : MonoBehaviour
 
     private void Start()
     {
-        
+        activeScene = SceneManager.GetActiveScene().name;
+
+        if (activeScene.StartsWith("Level"))
+            id = System.Int32.Parse(activeScene.Substring(5));
     }
 
     private void Update()
     {
-        string activeScene = SceneManager.GetActiveScene().name;
+        activeScene = SceneManager.GetActiveScene().name;
 
         if(id > 0 && activeScene.Equals("Tutorial 1"))
         {

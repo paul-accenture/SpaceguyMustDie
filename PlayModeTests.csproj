@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DD0393CC-E547-AFD7-30F2-9A23FF5D6B1E}</ProjectGuid>
+    <ProjectGuid>{8DF00DA2-CE2B-B323-B8F3-FB038A145983}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PlayModeTests</AssemblyName>
@@ -65,19 +65,19 @@
   <ItemGroup>
     <Compile Include="Assets\PlayModeTests\Tests.cs" />
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.17f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -257,7 +257,7 @@
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.17f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>/Users/tod.schlegelmilch/projects/SpaceGuyMustDie/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>/Users/blair.brown/Projects/UnityProjectsFolder/SpaceguyMustDie/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2019.2.17f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -607,7 +607,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="GameScriptAssembly.csproj">
-      <Project>{9A6A9FA5-1DDD-2620-8811-54FDA0B50800}</Project>
+      <Project>{FB8AAEDA-27D0-4EA2-EA1C-F5832D67C907}</Project>
       <Name>GameScriptAssembly</Name>
     </ProjectReference>
   </ItemGroup>
