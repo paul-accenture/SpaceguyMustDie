@@ -104,6 +104,11 @@ public class gameState : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            SceneManager.LoadScene("Tutorial 1");
+        }
         
 
         if (myState == state.RED)
